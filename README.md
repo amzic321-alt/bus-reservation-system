@@ -17,7 +17,7 @@ bus_reservation.exe (Windows)
 - Save/load bookings from file
 
 ## Group Members
-- [Your Name]
-- [Member 2 Name]
-- [Member 3 Name]
-- [Member 4 Name]
+- [Thiem Ratanakodom]
+- [Soy seng]
+- [Tep]
+- [Ngorn Vitou]
