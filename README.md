@@ -1,23 +1,34 @@
-# Bus Ticket Reservation System
-Group 7 - Programming Fundamentals Final Project
+# Bus-Reservation-System
 
-## How to Compile
-gcc bus_reservation.c -o bus_reservation
-
-## How to Run
-./bus_reservation   (Mac/Linux)
-bus_reservation.exe (Windows)
+A C programming project that implements a bus ticket reservation system
+with seat booking, cancellation, passenger search, and file-based save/load.
 
 ## Features
-- View seat map
-- Book a seat
-- Cancel a booking
-- Search passenger
-- Print ticket
-- Save/load bookings from file
+- View bus seat map (available and booked seats)
+- Book a seat with passenger details
+- Cancel an existing booking
+- Search passenger by name
+- Print ticket with booking confirmation
+- Save and load bookings from file
+
+## How to Compile and Run
+```bash
+gcc bus_reservation.c -o bus_reservation
+./bus_reservation
+```
+
+## File Structure
+- `bus_reservation.c` - Main source code
+- `bookings.txt` - Auto-generated bookings file
+
+## Concepts Used
+- Arrays, Structures, Strings
+- File Handling (read/write)
+- Input validation
+- Functions and loops
 
 ## Group Members
-- [Thiem Ratanakodom]
-- [Soy seng]
-- [Tep]
-- [Ngorn Vitou]
+- [Name 1]
+- [Name 2]
+- [Name 3]
+- [Name 4]
