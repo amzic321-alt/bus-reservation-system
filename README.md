@@ -28,7 +28,7 @@ gcc bus_reservation.c -o bus_reservation
 - Functions and loops
 
 ## Group Members
-- [Name 1]
-- [Name 2]
-- [Name 3]
-- [Name 4]
+- [Thiem Ratanakodoma]
+- [Soy seng]
+- [tep]
+- [Ngorn Vitou]
