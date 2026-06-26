@@ -30,5 +30,5 @@ gcc bus_reservation.c -o bus_reservation
 ## Group Members
 - [Thiem Ratanakodoma]
 - [Soy seng]
-- [tep]
+- [Moungkol Sokha]
 - [Ngorn Vitou]
