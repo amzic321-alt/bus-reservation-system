@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /* ── Constants ─────────────────────────────────────── */
 #define ROWS         5
@@ -40,6 +41,8 @@ void saveBookings();
 void loadBookings();
 void printLine(char c, int len);
 void clearInputBuffer();
+int  isValidName(const char *name);
+int  isValidPhone(const char *phone);
 
 /* ==========================================================
    MAIN
@@ -156,16 +159,16 @@ void bookSeat() {
     printf("  Enter passenger name  : ");
     fgets(name, sizeof(name), stdin);
     name[strcspn(name, "\n")] = '\0';
-    if (strlen(name) == 0) {
-        printf("  [!] Name cannot be empty.\n");
+    if (!isValidName(name)) {
+        printf("  [!] Invalid name. Use letters and spaces only (not empty).\n");
         return;
     }
 
     printf("  Enter phone number    : ");
     fgets(phone, sizeof(phone), stdin);
     phone[strcspn(phone, "\n")] = '\0';
-    if (strlen(phone) == 0) {
-        printf("  [!] Phone cannot be empty.\n");
+    if (!isValidPhone(phone)) {
+        printf("  [!] Invalid phone number. Use digits only (7-14 digits).\n");
         return;
     }
 
@@ -380,4 +383,31 @@ void printLine(char c, int len) {
 void clearInputBuffer() {
     int ch;
     while ((ch = getchar()) != '\n' && ch != EOF);
+}
+
+/* Name must be non-empty and contain only letters and spaces */
+int isValidName(const char *name) {
+    int len = strlen(name);
+    if (len == 0) return 0;
+
+    int hasLetter = 0;
+    for (int i = 0; i < len; i++) {
+        if (isalpha((unsigned char)name[i])) {
+            hasLetter = 1;
+        } else if (!isspace((unsigned char)name[i])) {
+            return 0;   /* digit or symbol found -> invalid */
+        }
+    }
+    return hasLetter;   /* must contain at least one letter */
+}
+
+/* Phone must be 7-14 digits, digits only (no letters/symbols) */
+int isValidPhone(const char *phone) {
+    int len = strlen(phone);
+    if (len < 7 || len > 14) return 0;
+
+    for (int i = 0; i < len; i++) {
+        if (!isdigit((unsigned char)phone[i])) return 0;
+    }
+    return 1;
 }
