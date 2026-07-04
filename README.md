@@ -19,7 +19,7 @@ gcc bus_reservation.c -o bus_reservation
 
 ## File Structure
 - `bus_reservation.c` - Main source code
-- `bookings.txt` - Auto-generated bookings file
+- `bookings.txt` -  bookings file
 
 ## Concepts Used
 - Arrays, Structures, Strings
@@ -32,3 +32,4 @@ gcc bus_reservation.c -o bus_reservation
 - [Soy seng]
 - [Moungkol Sokha]
 - [Ngorn Vitou]
+
