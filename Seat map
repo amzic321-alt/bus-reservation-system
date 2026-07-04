@@ -1,0 +1,40 @@
+*
+ * ============================================================
+ *  SEAT_MAP.C
+ * ============================================================
+ *  Displays the current bus seat map: which seats are
+ *  available ( O ) and which are already booked ( X ).
+ * ============================================================
+ */
+ 
+#include <stdio.h>
+#include "bus_reservation.h"
+ 
+void displaySeatMap(void) {
+    printf("\n");
+    printLine('-', 40);
+    printf("         BUS SEAT MAP\n");
+    printf("    [ O ] = Available   [ X ] = Booked\n");
+    printLine('-', 40);
+ 
+    printf("     Seat: ");
+    for (int c = 0; c < COLS; c++) {
+        printf("  %d ", c + 1);
+    }
+    printf("\n");
+ 
+    for (int r = 0; r < ROWS; r++) {
+        printf("  Row %d:  ", r + 1);
+        for (int c = 0; c < COLS; c++) {
+            if (seats[r][c] == 0)
+                printf("[ O]");
+            else
+                printf("[ X]");
+        }
+        printf("\n");
+    }
+    printLine('-', 40);
+    printf("  Total Seats: %d  |  Booked: %d  |  Available: %d\n",
+        ROWS * COLS, totalPassengers, ROWS * COLS - totalPassengers);
+    printLine('-', 40);
+}
