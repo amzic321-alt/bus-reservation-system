@@ -1,0 +1,43 @@
+/*
+ * ============================================================
+ *  PASSENGER_SEARCH.C
+ * ============================================================
+ *  Lets the user search for a booked passenger by name.
+ * ============================================================
+ */
+ 
+#include <stdio.h>
+#include <string.h>
+#include "bus_reservation.h"
+ 
+void searchPassenger(void) {
+    char keyword[50];
+    int  found = 0;
+ 
+    printf("\n  Enter passenger name to search: ");
+    fgets(keyword, sizeof(keyword), stdin);
+    keyword[strcspn(keyword, "\n")] = '\0';
+ 
+    printf("\n");
+    printLine('-', 50);
+    printf("  %-20s %-15s  %s\n", "Name", "Phone", "Seat");
+    printLine('-', 50);
+ 
+    for (int i = 0; i < totalPassengers; i++) {
+        if (passengers[i].active &&
+            strstr(passengers[i].name, keyword) != NULL) {
+            printf("  %-20s %-15s  Row %d, Col %d\n",
+                passengers[i].name,
+                passengers[i].phone,
+                passengers[i].row + 1,
+                passengers[i].col + 1);
+            found++;
+        }
+    }
+ 
+    if (!found)
+        printf("  [!] No passenger found with name: %s\n", keyword);
+ 
+    printLine('-', 50);
+    printf("  Found: %d result(s)\n", found);
+}
